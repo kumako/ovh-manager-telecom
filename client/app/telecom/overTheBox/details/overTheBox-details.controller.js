@@ -20,6 +20,21 @@ angular.module("managerApp").controller("OverTheBoxDetailsCtrl", function ($scop
     };
 
     /**
+     * Callback used to display X scale
+     * @param {String} label Current scale label
+     * @param {Number} index Index of the current scale label
+     * @param  {Array} all   All scale labels
+     * @return {String} Label
+     */
+    var timeAxisDisplay = function (label, index, all) {
+        var interval = Math.round(all.length / 12);
+        if (index === all.length - 1 || index % interval === 0) {
+            return all[index].format("DD-MM HH:mm");
+        }
+        return "";
+    };
+
+    /**
      * Define the display string for a bitrate
      * @param {Number} bitrate Bitrate in bits per seconds
      * @return {String}
@@ -132,6 +147,11 @@ angular.module("managerApp").controller("OverTheBoxDetailsCtrl", function ($scop
                     callback: logarithmicAxisDisplay
                 }
             });
+            self.chartDown.setAxisOptions("xAxes", {
+                ticks: {
+                    callback: timeAxisDisplay
+                }
+            });
             self.chartDown.setTooltipCallback(
                 "label",
                 function (item) {
@@ -179,6 +199,11 @@ angular.module("managerApp").controller("OverTheBoxDetailsCtrl", function ($scop
                 type: "logarithmic",
                 ticks: {
                     callback: logarithmicAxisDisplay
+                }
+            });
+            self.chartDown.setAxisOptions("xAxes", {
+                ticks: {
+                    callback: timeAxisDisplay
                 }
             });
             self.chartUp.setTooltipCallback(

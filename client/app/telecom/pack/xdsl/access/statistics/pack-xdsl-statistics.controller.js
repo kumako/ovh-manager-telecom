@@ -40,6 +40,21 @@ angular.module("managerApp").controller("XdslStatisticsCtrl", function ($q, $sco
     };
 
     /**
+     * Callback used to display X scale
+     * @param {String} label Current scale label
+     * @param {Number} index Index of the current scale label
+     * @param  {Array} all   All scale labels
+     * @return {String} Label
+     */
+    var timeAxisDisplay = function (label, index, all) {
+        var interval = Math.round(all.length / 12);
+        if (index === all.length - 1 || index % interval === 0) {
+            return all[index].format("DD-MM HH:mm");
+        }
+        return "";
+    };
+
+    /**
      * Get the statistics of a line
      * @param {String} type   Some of :
      *          - snr:upload
@@ -127,6 +142,12 @@ angular.module("managerApp").controller("XdslStatisticsCtrl", function ($q, $sco
                 }
             });
 
+            self.synchronization.chart.setAxisOptions("xAxes", {
+                ticks: {
+                    callback: timeAxisDisplay
+                }
+            });
+
             self.synchronization.chart.addSerie(
                 $translate.instant("xdsl_statistics_download_label"),
                 _.map(stats.downloads, function (point) {
@@ -205,6 +226,12 @@ angular.module("managerApp").controller("XdslStatisticsCtrl", function ($q, $sco
                 }
             });
 
+            self.traffic.chart.setAxisOptions("xAxes", {
+                ticks: {
+                    callback: timeAxisDisplay
+                }
+            });
+
             self.traffic.chart.addSerie(
                 $translate.instant("xdsl_statistics_download_label"),
                 _.map(stats.downloads, function (point) {
@@ -278,6 +305,12 @@ angular.module("managerApp").controller("XdslStatisticsCtrl", function ($q, $sco
                     type: "linear"
                 });
 
+                self.ping.chart.setAxisOptions("xAxes", {
+                    ticks: {
+                        callback: timeAxisDisplay
+                    }
+                });
+
                 self.ping.chart.addSerie(
                     $translate.instant("xdsl_statistics_ping_title"),
                     _.map(statistics, function (point) {
@@ -336,6 +369,12 @@ angular.module("managerApp").controller("XdslStatisticsCtrl", function ($q, $sco
 
             self.snr.chart.setAxisOptions("yAxes", {
                 type: "linear"
+            });
+
+            self.snr.chart.setAxisOptions("xAxes", {
+                ticks: {
+                    callback: timeAxisDisplay
+                }
             });
 
             self.snr.chart.addSerie(
@@ -411,6 +450,12 @@ angular.module("managerApp").controller("XdslStatisticsCtrl", function ($q, $sco
 
             self.attenuation.chart.setAxisOptions("yAxes", {
                 type: "linear"
+            });
+
+            self.attenuation.chart.setAxisOptions("xAxes", {
+                ticks: {
+                    callback: timeAxisDisplay
+                }
             });
 
             self.attenuation.chart.addSerie(

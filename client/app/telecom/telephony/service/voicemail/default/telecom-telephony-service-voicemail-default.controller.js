@@ -1,4 +1,4 @@
-angular.module("managerApp").controller("TelecomTelephonyLineAnswerDefaultVoicemailCtrl", function ($scope, $stateParams, $q, $timeout, $filter, ToastError, Telephony) {
+angular.module("managerApp").controller("TelecomTelephonyServiceVoicemailDefaultCtrl", function ($scope, $stateParams, $q, $timeout, $filter, ToastError, Telephony) {
     "use strict";
 
     var self = this;

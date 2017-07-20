@@ -4,12 +4,16 @@
         <div class="widget-presentation">
             <h2 class="widget-presentation-title" data-translate="overTheBox_tasks_list"></h2>
 
-            <spinner data-ng-show="OverTheBoxTasks.loaders.init"></spinner>
+            <bouncing-box-loader data-ng-if="OverTheBoxTasks.loaders.init">
+                <h3 class="top-space-m16"
+                    data-translate="loading">
+                </h3>
+            </bouncing-box-loader>
 
             <!-- TASKS LIST -->
             <div class="table-responsive-vertical">
 
-                <table class="table table-pretty table-hover table-striped">
+                <table class="table table-pretty table-hover">
                     <thead>
                         <tr>
                             <th scope="col" data-translate="overTheBox_tasks_name"></th>
@@ -24,9 +28,10 @@
                     </tbody>
                     <tbody data-ng-id="OverTheBoxTasks.taskIds.length > 0">
                         <tr data-ng-repeat="task in OverTheBoxTasks.tasks">
-                            <td data-title="{{'overTheBox_tasks_name' | translate}}"
+                            <th scope="row"
+                                data-title="{{'overTheBox_tasks_name' | translate}}"
                                 data-ng-bind="task.name">
-                            </td>
+                            </th>
                             <td data-title="{{'overTheBox_tasks_id' | translate}}"
                                 data-ng-bind="task.taskId"></td>
                             <td data-title="{{'overTheBox_tasks_status' | translate}}">

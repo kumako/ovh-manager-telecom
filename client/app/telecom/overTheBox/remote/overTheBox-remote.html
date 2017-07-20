@@ -44,7 +44,7 @@
                                 <spinner type="volume" class="left-space-m4" data-ng-if="remote.status !== 'active'"></spinner>
                             </td>
                             <td data-ng-bind="remote.authorizedBy"></td>
-                            <td>{{remote.expirationDate | date:'dd/MM/yyyy'}}</td>
+                            <td data-ng-bind="remote.expirationDate | date:'dd/MM/yyyy'"></td>
                             <td>
                                 <button type="button"
                                         class="btn btn-link btn-xs"
@@ -98,10 +98,8 @@
                                            href="{{OverTheBoxRemote.getHttpConnectionHelp(remote)}}"
                                            target="_blank"
                                            data-ng-bind="OverTheBoxRemote.getHttpConnectionHelp(remote)"></a>
-                                        <div data-ng-if="(remote.exposedPort!==443) && (remote.exposedPort!==22)">
-                                            <span data-ng-bind="remote.connectionInfos.ip"></span>
-                                            <span> / </span>
-                                            <span data-ng-bind="remote.connectionInfos.port"></span>
+                                        <div data-ng-if="(remote.exposedPort!==443) && (remote.exposedPort!==22)"
+                                             data-ng-bind="remote.connectionInfos.ip + ' / ' + remote.connectionInfos.port">
                                         </div>
                                     </dd>
                                 </dl>
@@ -214,7 +212,7 @@
                   </div>
 
                   <div class="form-group">
-                      <label for="expirationDate"
+                      <label for="publicKey"
                              class="col-xs-12 col-md-3">
                              <a class="btn btn-link space-p0"
                                 title="{{::'overTheBox_remote_add_publicKey' | translate}} {{::'common_newtab' | translate}}"
@@ -222,7 +220,7 @@
                                 target="_blank"
                                 data-uib-tooltip="{{ 'overTheBox_remote_public_key_tooltip' | translate }}">
                                 <span data-translate="overTheBox_remote_add_publicKey"></span>
-                                <span class="ovh-font ovh-font-newtab fs16"></span>
+                                <span class="ovh-font ovh-font-newtab fs16" aria-hidden="true"></span>
                             </a>
                       </label>
                       <div class="col-xs-12 col-md-4">

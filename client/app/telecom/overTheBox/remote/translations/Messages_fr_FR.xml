@@ -31,10 +31,10 @@
 
    <translation id="overTheBox_remote_add" qtlid="306370">Ajouter un accès à distance</translation>
 
-   <translation id="overTheBox_remote_add_allowedIp" qtlid="306383">IP autorisée :</translation>
-   <translation id="overTheBox_remote_add_exposedPort" qtlid="306396">Port exposé (443, 22, ...) :</translation>
-   <translation id="overTheBox_remote_add_expirationDate" qtlid="108769">Date d'expiration :</translation>
-   <translation id="overTheBox_remote_add_publicKey" qtlid="306409">Clef publique :</translation>
+   <translation id="overTheBox_remote_add_allowedIp">IP autorisée</translation>
+   <translation id="overTheBox_remote_add_exposedPort">Port exposé (443, 22, ...)</translation>
+   <translation id="overTheBox_remote_add_expirationDate">Date d'expiration</translation>
+   <translation id="overTheBox_remote_add_publicKey">Clef publique</translation>
 
    <translation id="overTheBox_remote_add_allowedIp_error" qtlid="306422">L'adresse IP n'est pas correcte.</translation>
    <translation id="overTheBox_remote_add_exposedPort_error" qtlid="166677">Le port est invalide.</translation>

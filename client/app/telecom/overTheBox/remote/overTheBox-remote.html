@@ -216,10 +216,14 @@
                   <div class="form-group">
                       <label for="expirationDate"
                              class="col-xs-12 col-md-3">
-                             <a href="{{OverTheBoxRemote.publicKeyHelperUrl}}"
+                             <a class="btn btn-link space-p0"
+                                title="{{::'overTheBox_remote_add_publicKey' | translate}} {{::'common_newtab' | translate}}"
+                                href="{{OverTheBoxRemote.publicKeyHelperUrl}}"
                                 target="_blank"
-                                data-uib-tooltip="{{ 'overTheBox_remote_public_key_tooltip' | translate }}"
-                                data-translate="overTheBox_remote_add_publicKey"></a>
+                                data-uib-tooltip="{{ 'overTheBox_remote_public_key_tooltip' | translate }}">
+                                <span data-translate="overTheBox_remote_add_publicKey"></span>
+                                <span class="ovh-font ovh-font-newtab fs16"></span>
+                            </a>
                       </label>
                       <div class="col-xs-12 col-md-4">
                           <div flat-input-container>

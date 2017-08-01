@@ -44,7 +44,7 @@
                                 <spinner type="volume" class="left-space-m4" data-ng-if="remote.status !== 'active'"></spinner>
                             </td>
                             <td data-ng-bind="remote.authorizedBy"></td>
-                            <td data-ng-bind="remote.expirationDate | date:'dd/MM/yyyy'"></td>
+                            <td data-ng-bind="remote.expirationDate | date:'shortDate'"></td>
                             <td>
                                 <button type="button"
                                         class="btn btn-link btn-xs"
@@ -55,7 +55,8 @@
                                         data-ng-really-confirm="{{ 'ok' | translate }}"
                                         data-ng-really-cancel="{{ 'cancel' | translate }}"
                                         data-ng-really-window-class="revert-really-buttons"
-                                        title="{{ 'overTheBox_remote_authorize_tooltip' | translate: {port:remote.exposedPort} }}">
+                                        data-translate-values="{port: remote.exposedPort}"
+                                        data-translate-attr="{title: 'overTheBox_remote_authorize_tooltip'}">
                                     <span class="ovh-font ovh-font-key" aria-hidden="true"></span>
                                 </button>
                                 <button type="button"
@@ -67,7 +68,8 @@
                                         data-ng-really-confirm="{{ 'ok' | translate }}"
                                         data-ng-really-cancel="{{ 'cancel' | translate }}"
                                         data-ng-really-window-class="revert-really-buttons"
-                                        title="{{ 'overTheBox_remote_authorize_delete_tooltip' | translate: {port:remote.exposedPort} }}">
+                                        data-translate-values="{port: remote.exposedPort}"
+                                        data-translate-attr="{title: 'overTheBox_remote_authorize_delete_tooltip'}">
                                     <span class="ovh-font ovh-font-bin" aria-hidden="true"></span>
                                 </button>
                             </td>
